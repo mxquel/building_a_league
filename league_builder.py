@@ -1,6 +1,6 @@
 import csv
 
-#load data from provided csv file into the script
+
 def get_player_info():
     """loads the player information from csv output_file
         returns a list of the information starting with the experienced players
@@ -20,7 +20,6 @@ def get_player_info():
     return experienced + inexperienced
 
 
-#evenly allocated players to one of three teams
 def player_allocation():
     """takes the player information from the csv file and allocates evenly
         compiled lists of players to the three teams. returns a dictionary
@@ -36,7 +35,6 @@ def player_allocation():
     return teams
 
 
-#assemble text
 def team_roster(teams):
     """Takes the collection of allocated players and
         returns a formated string"""
@@ -56,7 +54,6 @@ def team_roster(teams):
     return roster
 
 
-#create names for welcome letter files
 def generate_file_names(teams):
     """Creates names for welcome letter files from the teams collection
         returns a list of file names"""
@@ -103,7 +100,7 @@ if __name__ == '__main__':
     with open('team.txt', 'w') as roster_file:
         roster_file.write(team_roster(teams))
 
-    #create welcome letters to players guardians
+    #create welcome letters to player's guardians
     for file_name, message in welcome_letters:
-        with open('letters/' + file_name, 'w') as welcome_letter:
+        with open(file_name, 'w') as welcome_letter:
             welcome_letter.write(message)
